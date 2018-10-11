@@ -1,6 +1,14 @@
-body {
-    background-color:aqua;
-}
+$not-valid-color: red;
 #btnToggleModal {
     background-color: yellow;
+}
+.name-row {
+ &.not-valid {
+     span {
+        color:$not-valid-color;
+     }
+     input {
+        border: 1px solid $not-valid-color;
+     }
+ }
 }
