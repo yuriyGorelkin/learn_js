@@ -1,0 +1,8 @@
+#btnToggleModal {
+  background-color: yellow; }
+
+.name-row.not-valid span {
+  color: red; }
+
+.name-row.not-valid input {
+  border: 1px solid red; }

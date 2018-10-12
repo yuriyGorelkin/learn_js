@@ -1,8 +1,15 @@
 .lamp {
     width: 60px;
     &_toggle {
-        .lamp__lighter {
-            background-color: #ffe108;
+        &:nth-child(odd) {
+          .lamp__lighter {
+            background-color: #008dff;
+          }
+        }
+        &:nth-child(even) {
+            .lamp__lighter {
+              background-color: #deff00;
+          }
         }
         .lamp__switcher {
             background-color: #4dd800;
@@ -19,7 +26,12 @@
     &__switcher {
         text-align: center;
         width:100%;
-        display: block;
+        display: block;        
     }
+}
+.globalSwitcher {
+    text-align: center;
+    width: 60px;
+    margin: 10px auto;
 }
    

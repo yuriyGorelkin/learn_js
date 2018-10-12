@@ -60,109 +60,51 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(2);
-
-__webpack_require__(3);
-
-__webpack_require__(4);
-
-/***/ }),
-/* 2 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var button = document.querySelector('#btnToggleModal');
-var output = document.querySelector('#output');
-var nameInput = document.querySelector('#nameInput');
-var label = document.querySelector('.name-row');
+__webpack_require__(7);
 
-button.onclick = greeting;
-
-function greeting() {
-  var name = nameInput.value;
-  if (name) {
-    nameInput.value = '';
-    print('Hello, ' + name + '!');
-  } else {
-    label.classList.add('not-valid');
-  }
-}
-
-function print(text) {
-  output.innerHTML = text;
-}
-
-var employees = [{
-  name: 'John',
-  salary: 2000
-}, {
-  name: 'Jack',
-  salary: 3000
-}, {
-  name: 'Adam',
-  salary: 2200
-}];
-
-employees.push({
-  name: 'Jim',
-  salary: 2550
-});
-
-function totalSalaries(employeesArray) {
-  var totalCount = 0;
-
-  employeesArray.forEach(function (item) {
-    if (typeof item.salary === 'number') {
-      totalCount += item.salary;
-    }
-  });
-  return totalCount;
-}
-
-var totalResult = totalSalaries(employees);
-console.log(totalResult);
+__webpack_require__(8);
 
 /***/ }),
-/* 3 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-function findMax(array) {
-    var maxValue = 0;
-    array.forEach(function (item) {
-        if (typeof item === 'number' && item > maxValue) {
-            maxValue = item;
-        }
-    });
-    return maxValue;
+var lampWidget = document.querySelector('.lamp');
+var lighter = document.querySelector('.lamp__lighter');
+var btnToggle = document.querySelector('.lamp__switcher');
+
+btnToggle.onclick = toggleLight;
+
+function toggleLight() {
+    lampWidget.classList.toggle('lamp_toggle');
 }
 
-var maxValue = findMax([1, 42, 32, 56, 89, 101, 56, 2]);
-console.log('MaxValue: ' + maxValue);
-
 /***/ }),
-/* 4 */
+/* 8 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
