@@ -10,7 +10,9 @@ const baseConf = (_path) => {
   const VENDORS_NAME = 'vendors';
   const entry = {
     index: ['./src/index/index.js'],
-    'lamps': ['./src/lamps/lamps.js']
+    'lamps': ['./src/lamps/lamps.js'],
+    'lighter': ['./src/lighter/lighter.js'],
+    'dropdown': ['./src/dropdown/dropdown.js']
   };
 
   const plugins = Object.keys(entry).reduce((acc, name) => {

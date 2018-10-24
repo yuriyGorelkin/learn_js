@@ -1,0 +1,44 @@
+$padding: 0.5rem;
+
+.dropdown {
+    position: relative;
+    border: 1px solid red;
+    width: 300px;
+    margin: 0 auto;
+
+    &__title {
+        text-align: right;
+        padding: $padding;
+        background-color: rgba(3, 104, 255, 0.74);
+        color: #FFF;
+        cursor: pointer;
+    }
+
+    &__options {
+        visibility: hidden;
+        transform: scaleY(0);
+        width: 100%;
+        position: absolute;
+        background-color: #FFF;
+        text-align: right;
+        box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.4);
+        transition: transform 0.5s;
+        transform-origin: top;
+        z-index: 1;
+    }
+
+    &__option {
+        cursor: pointer;
+        padding: $padding;        
+        &:active {
+            background-color: rgba(3, 104, 255, 0.74);
+        }
+    }
+
+    &.opened {
+        .dropdown__options {
+            transform: scaleY(1);
+            visibility: visible;
+        }
+    }
+}

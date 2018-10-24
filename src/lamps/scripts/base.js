@@ -7,15 +7,15 @@ function lampWidget(rootElementSelector) {
 
   lamps.forEach((lamp) => {
     const btnToggle = lamp.querySelector('.lamp__switcher');
-    btnToggle.onclick = toggleLight;
+    btnToggle.addEventListener('click', toggleLight);
 
     function toggleLight() {
         lamp.classList.toggle('lamp_toggle');
         isEnabled = true;
     }
   });
-
-  globalSwitcher.onclick = switchAll;
+  
+  globalSwitcher.addEventListener('click', switchAll);
 
   function switchAll() {
       if (isEnabled) {

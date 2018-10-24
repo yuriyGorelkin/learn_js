@@ -1,0 +1,38 @@
+.lighter {
+    padding: 10px;
+    border: 1px solid grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    &__lamp {
+        width: 50px;
+        height: 50px;
+        border: 1px solid grey;
+        border-radius: 50%;
+        margin: 10px auto;               
+    }
+
+    &__switcher {
+        border: none;
+        border-radius: 3px;
+        color: rgb(80, 107, 228);
+        background-color: rgb(195, 197, 206);
+        font-weight: bold;
+    }
+    
+}
+.shine {
+    &#red {
+        background-color: red;
+    }
+
+    &#yellow {
+        background-color: yellow;
+    }
+
+    &#green {
+        background-color: green;
+    }
+}
