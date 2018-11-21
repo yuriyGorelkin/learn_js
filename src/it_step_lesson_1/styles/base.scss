@@ -1,0 +1,27 @@
+$fontSize: 14px;
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: $fontSize;
+    font-family: Roboto, Arial, sans-serif;
+    color: #202020;    
+  }
+  
+ 
+  body, h1, h2, h3, h4, h5, ul, ol, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #202020;
+  }
+  
+ 

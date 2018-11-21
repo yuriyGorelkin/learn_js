@@ -12,7 +12,9 @@ const baseConf = (_path) => {
     index: ['./src/index/index.js'],
     'lamps': ['./src/lamps/lamps.js'],
     'lighter': ['./src/lighter/lighter.js'],
-    'dropdown': ['./src/dropdown/dropdown.js']
+    'dropdown': ['./src/dropdown/dropdown.js'],
+    'it_step_lesson_1': ['./src/it_step_lesson_1/it_step_lesson_1.js'],
+    'it_step_lesson_2': ['./src/it_step_lesson_2/it_step_lesson_2.js']
   };
 
   const plugins = Object.keys(entry).reduce((acc, name) => {

@@ -1,0 +1,15 @@
+img {
+    width: 250px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%); 
+    }
+.zoom {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid grey;
+    top:0;
+    right:2.5%;      
+}
