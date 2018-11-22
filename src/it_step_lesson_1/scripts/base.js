@@ -4,9 +4,11 @@ img.addEventListener('mouseover', (e)=> {
     const imgMax = document.createElement('div');
    
     imgMax.classList.add('zoom');
-    imgMax.style.background = 'url(' + e.target.getAttribute('data-img-max') + ')';
+    let pathBigImg = e.target.getAttribute('data-img-max');
+    imgMax.style.background = `url(${pathBigImg})`;
     img.parentNode.appendChild(imgMax);
 });
+
 img.addEventListener('mouseleave', (e) => {
     e.target.nextElementSibling.remove();
 });

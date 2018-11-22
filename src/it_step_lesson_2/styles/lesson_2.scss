@@ -1,0 +1,18 @@
+img {
+    width: 250px;
+    margin: 1rem auto;
+}
+
+.zoom {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid grey;
+    top: 0;
+    left: 100%;
+}
+
+.img__wrapper {
+    position: relative;
+    display: inline-block;    
+}
