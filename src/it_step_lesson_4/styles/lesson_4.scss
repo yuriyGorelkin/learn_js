@@ -1,0 +1,30 @@
+$elMargin: 0.5rem;
+$elWidth: 18rem;
+
+.product {
+    display: inline-block;
+    margin: $elMargin;
+    &__apple {
+        width: $elWidth;
+        height: $elWidth;
+    }
+    &__orange {
+        width: $elWidth;
+        height: $elWidth;
+    }
+    &__kivi {
+        width: $elWidth;
+        height: $elWidth;
+    }
+}
+#cart {
+    width: 18rem;
+    margin: $elMargin;
+    border: 1px solid red;
+    :first-child {
+        margin: $elMargin 0;
+    }
+    :last-child {
+        margin: $elMargin 0;
+    }
+}
