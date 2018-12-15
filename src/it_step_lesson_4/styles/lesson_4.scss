@@ -4,27 +4,47 @@ $elWidth: 18rem;
 .product {
     display: inline-block;
     margin: $elMargin;
+
     &__apple {
         width: $elWidth;
         height: $elWidth;
     }
+
     &__orange {
         width: $elWidth;
         height: $elWidth;
     }
+
     &__kivi {
         width: $elWidth;
         height: $elWidth;
     }
 }
-#cart {
+
+#widgetCart {
     width: 18rem;
     margin: $elMargin;
-    border: 1px solid red;
-    :first-child {
-        margin: $elMargin 0;
-    }
-    :last-child {
-        margin: $elMargin 0;
-    }
+    background-color: rgb(199, 199, 199);
+    box-shadow: 1px 1px 3px 0 rgb(199, 199, 199);
+    position: relative;
+}
+
+.cart__item {
+    background-color: rgba(128, 128, 128, 0.671);
+    color: #FFF;
+    display: inline-block;
+    width: 75%;
+    margin-bottom: $elMargin;
+}
+
+.remove__Btn {
+    position: absolute;
+    right: 0;
+    display: block;
+}
+
+.button_removeEl {
+    width: 20%;
+    position: absolute;
+    right: 0;
 }

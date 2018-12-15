@@ -23,8 +23,12 @@ class Product {
 
     addToCart() {
         this.count = this.inputCount.value;
+        let reg = /^\d{1,3}$/;
+        if (!reg.test(this.count)) {
+            this.count = 1;
+        }
         this.TotalAmount = this.price * this.count;
-        Cart.addStorage(this.getData());
+        Cart.addItem(this.getData());
         new viewCart(JSON.parse(localStorage.getItem('cart'))).showProducts();
     }
 }
@@ -35,8 +39,12 @@ document.querySelectorAll('.product').forEach(function (product) {
 
 
 class Cart {
-    static addStorage(item) {
-        const items = JSON.parse(localStorage.getItem('cart')) || [];
+    static getItems() {
+        return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+
+    static addItem(item) {
+        const items = this.getItems();
         if (this.containsItem(item)) {
             console.log(item);
             this.updateItem(item);
@@ -47,10 +55,10 @@ class Cart {
     }
 
     static updateItem(updatedItem) {
-        const items = JSON.parse(localStorage.getItem('cart'));
+        const items = this.getItems();
         items.forEach((item) => {
             if (updatedItem.id === item.id) {
-                item.count = parseInt (item.count) + parseInt (updatedItem.count);
+                item.count = parseInt(item.count) + parseInt(updatedItem.count);
                 item.totalAmount = item.count * item.price;
                 localStorage.setItem('cart', JSON.stringify(items));
             }
@@ -59,7 +67,7 @@ class Cart {
 
     static containsItem(addedItem) {
         let contains = false;
-        const items = JSON.parse(localStorage.getItem('cart'));
+        const items = this.getItems();
 
         if (!items) {
             return contains;
@@ -70,20 +78,56 @@ class Cart {
             }
         });
         return contains;
-    }       
+    }
+
+    static removeItems(e) {
+        if (e.target.classList.contains('remove__Btn')) {
+            localStorage.removeItem('cart');
+            widgetCart.cartElement.innerHTML = '';
+        }
+        if (e.target.classList.contains('button_removeEl')) {
+            const btnId = e.target.getAttribute('data-id');
+            const items = Cart.getItems();
+            items.forEach((item, i) => {
+                if (btnId === item.id) {
+                    items.splice(i, 1);
+                    localStorage.setItem('cart', JSON.stringify(items));
+                    widgetCart.cartElement.removeChild(item);                   
+                }
+            });
+        }
+    }
 }
 
 class viewCart {
     constructor(items) {
-       this.items = items; 
+        this.items = items;
+        this.cartElement = document.getElementById('widgetCart');
+        this.cartElement.addEventListener('click', Cart.removeItems);
+        // this.cartElement.addEventListener('click', this.deleteShowElement.bind(this));
     }
+
     showProducts() {
         let showElement = '';
         this.items.forEach((item) => {
-            showElement += `<div>${item.title}: ${item.count} * ${item.price} = ${item.totalAmount} </div>`;            
+            showElement += `<div class='cart__item'>${item.title}: ${item.count} * ${item.price} = ${item.totalAmount} </div> <button data-id='${item.id}'class= 'button_removeEl'>del</button>`;
         });
-        document.getElementById('cart').innerHTML = showElement;
+        showElement += `<button class= 'remove__Btn'> delete </button>`;
+        this.cartElement.innerHTML = showElement;
+        return this;
     }
+
+    // deleteShowElement(e) {
+    //     if (e.target.classList.contains('button_removeEl')) {
+    //         const btnId = e.target.getAttribute('data-id');
+    //         const items = Cart.getItems();            
+    //         items.forEach((item) => {
+    //             if (btnId === item.id) {                   
+    //                 this.cartElement.removeChild(item);                    
+    //             }
+    //         });
+    //     }
+    // }
 }
 
-new viewCart(JSON.parse(localStorage.getItem('cart'))).showProducts();
+const widgetCart = new viewCart(Cart.getItems()).showProducts();
